@@ -11,6 +11,7 @@ const CataloguePage = () => {
   const [selectedCategory, setSelectedCategory] = useState(null)
   const [currentPage, setCurrentPage] = useState(1)
   const ITEMS_PER_PAGE = 10
+  const [selectedIds, setSelectedIds] = useState(() => new Set())
 
   // Get current dataset
   const data = currentDataset === 'response1' ? response1Data : response2Data
@@ -59,13 +60,23 @@ const CataloguePage = () => {
     if (el) el.scrollTo({ top: 0, behavior: 'smooth' })
   }, [])
 
+  // Called when ProductTable toggles the plus/share action for an item
+  const handleShareToggle = useCallback((itemId, isActive) => {
+    setSelectedIds((prev) => {
+      const next = new Set(prev)
+      if (isActive) next.add(itemId)
+      else next.delete(itemId)
+      return next
+    })
+  }, [])
+
 
 
 
   return (
     <>
       <Navbar />
-      <Header />
+  <Header selectedCount={selectedIds.size} currentDataset={currentDataset} onDatasetSwitch={onSwitchDataset} />
   {/* main content: constrain total height so page doesn't scroll; inner panes scroll */}
     <div className='m-4 max-h-[calc(100vh-130px)] overflow-hidden'>
         {/* Dataset Switcher */}
@@ -104,6 +115,7 @@ const CataloguePage = () => {
             currentPage={currentPage}
             itemsPerPage={ITEMS_PER_PAGE}
             onPageChange={handlePageChange}
+            onShareToggle={handleShareToggle}
           />
         </div>
       </div>

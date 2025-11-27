@@ -1,7 +1,7 @@
 import React, { useMemo, useState } from 'react'
 import { MoreVertical, BookmarkMinus, Pin, Plus } from 'lucide-react'
 
-const ProductTable = ({ data, currentPage, itemsPerPage, onPageChange }) => {
+const ProductTable = ({ data, currentPage, itemsPerPage, onPageChange, onShareToggle, onBookmarkToggle, onPinToggle }) => {
   const [activeActions, setActiveActions] = useState({})
   const { startIndex, endIndex, paginatedData, totalPages } = useMemo(() => {
     const start = (currentPage - 1) * itemsPerPage
@@ -24,10 +24,19 @@ const ProductTable = ({ data, currentPage, itemsPerPage, onPageChange }) => {
 
   const toggleAction = (itemId, actionType) => {
     const key = `${itemId}-${actionType}`
-    setActiveActions((prev) => ({
-      ...prev,
-      [key]: !prev[key],
-    }))
+    setActiveActions((prev) => {
+      const newVal = !prev[key]
+      const next = { ...prev, [key]: newVal }
+      // Notify parent only for the share/add action so header can update selected count
+      if (actionType === 'share' && typeof onShareToggle === 'function') {
+        try {
+          onShareToggle(itemId, newVal)
+        } catch (e) {
+          // swallow any errors from parent callback
+        }
+      }
+      return next
+    })
   }
 
   return (
@@ -45,7 +54,9 @@ const ProductTable = ({ data, currentPage, itemsPerPage, onPageChange }) => {
       {/* Table Body - scrollable area */}
   <div id='product-table-body' className='divide-y divide-gray-200 overflow-auto flex-1'>
         {paginatedData.map((item) => (
-          <div key={item.id} className='grid grid-cols-12 gap-4 px-6 py-4 hover:bg-gray-50 transition items-center text-sm'>
+          <div
+            key={item.id}
+            className={`grid grid-cols-12 gap-4 px-6 py-4 transition items-center text-sm ${activeActions[`${item.id}-share`] ? 'bg-blue-50' : 'hover:bg-gray-50'}`}>
             {/* Title & Category */}
             <div className='col-span-5'>
               <p className='font-medium text-gray-900'>{item.title}</p>
