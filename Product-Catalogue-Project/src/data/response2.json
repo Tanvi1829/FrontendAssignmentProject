@@ -1,0 +1,191 @@
+{
+   "categories": [
+      { "id": "australasia", "name": "Australasia" },
+      { "id": "country-groups", "name": "Country Groups" },
+      { "id": "europe", "name": "Europe" },
+      { "id": "middle-east", "name": "Middle East" },
+      { "id": "western-hemisphere", "name": "Western Hemisphere" }
+   ],
+   "Frequent": [
+      {
+         "id": "IMF001",
+         "title": "GDP - Current Prices (USD Billions)",
+         "category": "Australasia",
+         "range": "2015 - 2024",
+         "frequency": "Annual",
+         "unit": "USD",
+         "coverage": ["N"]
+      },
+      {
+         "id": "IMF002",
+         "title": "GDP - Constant Prices (USD Billions)",
+         "category": "Australasia",
+         "range": "2015 - 2024",
+         "frequency": "Annual",
+         "unit": "USD",
+         "coverage": ["N", "R"]
+      },
+      {
+         "id": "IMF003",
+         "title": "Inflation Rate (CPI)",
+         "category": "Country Groups",
+         "range": "2010 - 2024",
+         "frequency": "Annual",
+         "unit": "Percent",
+         "coverage": ["S", "R"]
+      },
+      {
+         "id": "IMF004",
+         "title": "Unemployment Rate",
+         "category": "Country Groups",
+         "range": "2010 - 2024",
+         "frequency": "Annual",
+         "unit": "Percent",
+         "coverage": ["N", "D"]
+      },
+      {
+         "id": "IMF005",
+         "title": "Government Debt (% of GDP)",
+         "category": "Europe",
+         "range": "2000 - 2024",
+         "frequency": "Annual",
+         "unit": "Percent",
+         "coverage": ["S"]
+      },
+      {
+         "id": "IMF006",
+         "title": "Current Account Balance",
+         "category": "Europe",
+         "range": "2010 - 2024",
+         "frequency": "Annual",
+         "unit": "USD Billions",
+         "coverage": ["N"]
+      },
+      {
+         "id": "IMF007",
+         "title": "Foreign Direct Investment Flows",
+         "category": "Middle East",
+         "range": "2000 - 2024",
+         "frequency": "Annual",
+         "unit": "USD Billions",
+         "coverage": ["S", "D"]
+      },
+      {
+         "id": "IMF008",
+         "title": "External Debt Stock",
+         "category": "Middle East",
+         "range": "2005 - 2024",
+         "frequency": "Annual",
+         "unit": "USD Billions",
+         "coverage": ["N", "R"]
+      },
+      {
+         "id": "IMF009",
+         "title": "Exports of Goods and Services",
+         "category": "Western Hemisphere",
+         "range": "2010 - 2024",
+         "frequency": "Annual",
+         "unit": "USD Billions",
+         "coverage": ["S"]
+      },
+      {
+         "id": "IMF010",
+         "title": "Imports of Goods and Services",
+         "category": "Western Hemisphere",
+         "range": "2010 - 2024",
+         "frequency": "Annual",
+         "unit": "USD Billions",
+         "coverage": ["N", "R"]
+      },
+      {
+         "id": "IMF011",
+         "title": "Trade Balance",
+         "category": "Western Hemisphere",
+         "range": "2010 - 2024",
+         "frequency": "Annual",
+         "unit": "USD Billions",
+         "coverage": ["S", "D"]
+      },
+      {
+         "id": "IMF012",
+         "title": "Interest Rates - Policy Rate",
+         "category": "Country Groups",
+         "range": "2010 - 2024",
+         "frequency": "Monthly",
+         "unit": "Percent",
+         "coverage": ["N"]
+      },
+      {
+         "id": "IMF013",
+         "title": "Exchange Rate vs USD",
+         "category": "Australasia",
+         "range": "2015 - 2024",
+         "frequency": "Daily",
+         "unit": "Local Currency",
+         "coverage": ["R"]
+      },
+      {
+         "id": "IMF014",
+         "title": "Money Supply (M2)",
+         "category": "Europe",
+         "range": "2010 - 2024",
+         "frequency": "Quarterly",
+         "unit": "Local Currency Billions",
+         "coverage": ["N", "D"]
+      },
+      {
+         "id": "IMF015",
+         "title": "Capital Account Balance",
+         "category": "Middle East",
+         "range": "2010 - 2024",
+         "frequency": "Annual",
+         "unit": "USD Billions",
+         "coverage": ["S"]
+      },
+      {
+         "id": "IMF016",
+         "title": "Reserves Minus Gold",
+         "category": "Country Groups",
+         "range": "2010 - 2024",
+         "frequency": "Quarterly",
+         "unit": "USD Billions",
+         "coverage": ["N", "R"]
+      },
+      {
+         "id": "IMF017",
+         "title": "Gross National Income Per Capita",
+         "category": "Europe",
+         "range": "2010 - 2024",
+         "frequency": "Annual",
+         "unit": "USD",
+         "coverage": ["S", "D"]
+      },
+      {
+         "id": "IMF018",
+         "title": "Population Growth Rate",
+         "category": "Western Hemisphere",
+         "range": "2010 - 2024",
+         "frequency": "Annual",
+         "unit": "Percent",
+         "coverage": ["N"]
+      },
+      {
+         "id": "IMF019",
+         "title": "Fiscal Balance (% of GDP)",
+         "category": "Australasia",
+         "range": "2010 - 2024",
+         "frequency": "Annual",
+         "unit": "Percent",
+         "coverage": ["S", "R"]
+      },
+      {
+         "id": "IMF020",
+         "title": "General Government Gross Debt",
+         "category": "Country Groups",
+         "range": "2005 - 2024",
+         "frequency": "Annual",
+         "unit": "Percent of GDP",
+         "coverage": ["N", "D"]
+      }
+   ]
+}

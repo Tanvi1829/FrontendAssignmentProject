@@ -1,0 +1,434 @@
+{
+   "categories": [
+      { "id": "agriculture", "name": "Agriculture" },
+      { "id": "banking", "name": "Banking" },
+      { "id": "capital-markets", "name": "Capital Markets" },
+      { "id": "climate", "name": "Climate" },
+      { "id": "commodity-prices", "name": "Commodity Prices" },
+      { "id": "energy", "name": "Energy" },
+      { "id": "external-sector", "name": "External Sector"},
+      { "id": "fx-market", "name": "FX Market" },
+      { "id": "foreign-trade", "name": "Foreign Trade" },
+      { "id": "government-finances", "name": "Government Finances" },
+      { "id": "inflation", "name": "Inflation" },
+      { "id": "interest-rates", "name": "Interest Rates" }
+   ],
+   "Frequent": [
+      {
+         "id": "1",
+         "title": "CPI Weight - All Commodities (2012 series)",
+         "category": "Banking",
+         "range": "Jan 2011 - Apr 2024",
+         "frequency": "Quarterly",
+         "unit": "USD",
+         "coverage": ["S", "R"]
+      },
+      {
+         "id": "2",
+         "title": "CPI Urban Weight - All Commodities (2012 series)",
+         "category": "Banking",
+         "range": "Jan 2011 - Apr 2024",
+         "frequency": "Quarterly",
+         "unit": "INR",
+         "coverage": ["N"]
+      },
+      {
+         "id": "3",
+         "title": "CPI Rural Weight - All Commodities (2012 series)",
+         "category": "Banking",
+         "range": "Jan 2011 - Apr 2024",
+         "frequency": "Quarterly",
+         "unit": "USD",
+         "coverage": ["S"]
+      },
+      {
+         "id": "4",
+         "title": "Total Expenditure outstanding under NREGA (annual)",
+         "category": "Banking",
+         "range": "Apr 2011 - Mar 2024",
+         "frequency": "Annually",
+         "unit": "INR",
+         "coverage": ["N", "D"]
+      },
+      {
+         "id": "5",
+         "title": "Number of Cash Withdrawal Transactions at ATMs",
+         "category": "Banking",
+         "range": "Apr 2011 - Mar 2024",
+         "frequency": "Weekly",
+         "unit": "INR",
+         "coverage": ["N", "R"]
+      },
+      {
+         "id": "6",
+         "title": "Number of Domestic Payment Frauds Reported (monthly)",
+         "category": "Banking",
+         "range": "Apr 2011 - Mar 2024",
+         "frequency": "Daily",
+         "unit": "INR",
+         "coverage": ["S", "D"]
+      },
+      {
+         "id": "7",
+         "title": "Number of Cash Withdrawal Transactions at POS Terminals",
+         "category": "Banking",
+         "range": "Apr 2011 - Mar 2024",
+         "frequency": "Daily",
+         "unit": "INR",
+         "coverage": ["N"]
+      },
+      {
+         "id": "8",
+         "title": "Number of Cash Withdrawal Transactions through Micro ATMs",
+         "category": "Banking",
+         "range": "Apr 2011 - Mar 2024",
+         "frequency": "Daily",
+         "unit": "Kilometers",
+         "coverage": ["S", "D"]
+      },
+      {
+         "id": "9",
+         "title": "Aggregate Deposits in Commercial Banks",
+         "category": "Banking",
+         "range": "Jan 2015 - Dec 2023",
+         "frequency": "Quarterly",
+         "unit": "INR Crores",
+         "coverage": ["N"]
+      },
+      {
+         "id": "10",
+         "title": "Credit and Advances by Commercial Banks",
+         "category": "Banking",
+         "range": "Jan 2015 - Dec 2023",
+         "frequency": "Quarterly",
+         "unit": "INR Crores",
+         "coverage": ["S", "R"]
+      },
+      {
+         "id": "11",
+         "title": "Government Debt (% of GDP)",
+         "category": "Government Finances",
+         "range": "2000 - 2024",
+         "frequency": "Annual",
+         "unit": "Percent",
+         "coverage": ["S"]
+      },
+      {
+         "id": "12",
+         "title": "Fiscal Deficit",
+         "category": "Government Finances",
+         "range": "2010 - 2024",
+         "frequency": "Annual",
+         "unit": "Percent of GDP",
+         "coverage": ["N", "D"]
+      },
+      {
+         "id": "13",
+         "title": "Inflation Rate (CPI)",
+         "category": "Inflation",
+         "range": "2010 - 2024",
+         "frequency": "Monthly",
+         "unit": "Percent",
+         "coverage": ["S", "R"]
+      },
+      {
+         "id": "14",
+         "title": "Wholesale Price Index",
+         "category": "Inflation",
+         "range": "2010 - 2024",
+         "frequency": "Monthly",
+         "unit": "Index",
+         "coverage": ["N"]
+      }
+   ],
+   "__old_frequent": [
+      {
+         "id":"RBPFSVGDQ111M:IND",
+         "title":"Consensus GDP Growth Estimate for next following quarter (Q1)",
+         "cat":"Business, Consumer Surveys",
+         "subCat":"Professional Forecasters Survey",
+         "subset":"Quarterly",
+         "freq":"BiMonthly",
+         "unit":"Percent",
+         "src":"RBI",
+         "sData":"N",
+         "datatype":"N",
+         "hierarchy":[
+            "RBPFSVGDQ111M:IND"
+         ],
+         "db":"IND"
+      },
+      {
+         "id":"RBPFSVGVQ111M:IND",
+         "title":"Consensus GVA Growth Estimate for next following quarter (Q1)",
+         "cat":"Business, Consumer Surveys",
+         "subCat":"Professional Forecasters Survey",
+         "subset":"Quarterly",
+         "freq":"BiMonthly",
+         "unit":"Percent",
+         "src":"RBI",
+         "sData":"N",
+         "datatype":"N",
+         "hierarchy":[
+            "RBPFSVGVQ111M:IND"
+         ],
+         "db":"IND"
+      },
+      {
+         "id":"RBPFSVHCQ111M:IND",
+         "title":"Consensus Headline CPI Estimate for next following quarter (Q1)",
+         "cat":"Business, Consumer Surveys",
+         "subCat":"Professional Forecasters Survey",
+         "subset":"Quarterly",
+         "freq":"BiMonthly",
+         "unit":"Percent",
+         "src":"RBI",
+         "sData":"N",
+         "datatype":"N",
+         "hierarchy":[
+            "RBPFSVHCQ111M:IND"
+         ],
+         "db":"IND"
+      },
+      {
+         "id":"RBPFSVCCQ111M:IND",
+         "title":"Consensus Core CPI Estimate for next following quarter (Q1)",
+         "cat":"Business, Consumer Surveys",
+         "subCat":"Professional Forecasters Survey",
+         "subset":"Quarterly",
+         "freq":"BiMonthly",
+         "unit":"Percent",
+         "src":"RBI",
+         "sData":"N",
+         "datatype":"N",
+         "hierarchy":[
+            "RBPFSVCCQ111M:IND"
+         ],
+         "db":"IND"
+      },
+      {
+         "id":"RBPFSVRRQ111M:IND",
+         "title":"Consensus Repo Rate Estimate for next following quarter end (Q1)",
+         "cat":"Business, Consumer Surveys",
+         "subCat":"Professional Forecasters Survey",
+         "subset":"Quarterly",
+         "freq":"BiMonthly",
+         "unit":"Percent",
+         "src":"RBI",
+         "sData":"N",
+         "datatype":"N",
+         "hierarchy":[
+            "RBPFSVRRQ111M:IND"
+         ],
+         "db":"IND"
+      },
+      {
+         "id":"ENELPRSTDD11D:IND",
+         "title":"Overdues of Power Discoms to Gencos - total dues till date (PRAAPTI)",
+         "cat":"Energy",
+         "subCat":"Power",
+         "subset":"",
+         "freq":"Daily",
+         "unit":"Rupees",
+         "src":"Praapti",
+         "sData":"Y",
+         "datatype":"N",
+         "hierarchy":[
+            "ENELPRSTDD11D:IND"
+         ],
+         "db":"IND"
+      },
+      {
+         "id":"MOIRSSSAVA11Q:IND",
+         "title":"Interest Rate on Small Savings Scheme - Savings Account (quarter end)",
+         "cat":"Government Finances",
+         "subCat":"Small Savings",
+         "subset":"Interest Rates",
+         "freq":"Quarterly",
+         "unit":"Percent",
+         "src":"Ministry of Finance",
+         "sData":"N",
+         "datatype":"N",
+         "hierarchy":[
+            "MOIRSSSAVA11Q:IND"
+         ],
+         "db":"IND"
+      },
+      {
+         "id":"MOIRSSTD1Y11Q:IND",
+         "title":"Interest Rate on Small Savings Scheme - Time Deposit (1yr) (quarter end)",
+         "cat":"Government Finances",
+         "subCat":"Small Savings",
+         "subset":"Interest Rates",
+         "freq":"Quarterly",
+         "unit":"Percent",
+         "src":"Ministry of Finance",
+         "sData":"N",
+         "datatype":"N",
+         "hierarchy":[
+            "MOIRSSTD1Y11Q:IND"
+         ],
+         "db":"IND"
+      },
+      {
+         "id":"MOIRSSTD2Y11Q:IND",
+         "title":"Interest Rate on Small Savings Scheme - Time Deposit (2yr) (quarter end)",
+         "cat":"Government Finances",
+         "subCat":"Small Savings",
+         "subset":"Interest Rates",
+         "freq":"Quarterly",
+         "unit":"Percent",
+         "src":"Ministry of Finance",
+         "sData":"N",
+         "datatype":"N",
+         "hierarchy":[
+            "MOIRSSTD2Y11Q:IND"
+         ],
+         "db":"IND"
+      },
+      {
+         "id":"MOIRSSPPFA11Q:IND",
+         "title":"Interest Rate on Small Savings Scheme - Public Provident Fund (PPF) (quarter end)",
+         "cat":"Government Finances",
+         "subCat":"Small Savings",
+         "subset":"Interest Rates",
+         "freq":"Quarterly",
+         "unit":"Percent",
+         "src":"Ministry of Finance",
+         "sData":"N",
+         "datatype":"N",
+         "hierarchy":[
+            "MOIRSSPPFA11Q:IND"
+         ],
+         "db":"IND"
+      },
+      {
+         "id":"MOIRSSKVPT11Q:IND",
+         "title":"Interest Rate on Small Savings Scheme - Kisan Vikas Patra (quarter end)",
+         "cat":"Government Finances",
+         "subCat":"Small Savings",
+         "subset":"Interest Rates",
+         "freq":"Quarterly",
+         "unit":"Percent",
+         "src":"Ministry of Finance",
+         "sData":"N",
+         "datatype":"N",
+         "hierarchy":[
+            "MOIRSSKVPT11Q:IND"
+         ],
+         "db":"IND"
+      },
+      {
+         "id":"INGIHLRTLV11M:IND",
+         "title":"General Insurance Premium - Retail Health (Monthly)",
+         "cat":"Insurance",
+         "subCat":"General Insurance",
+         "subset":"",
+         "freq":"Monthly",
+         "unit":"Rupees",
+         "src":"IRDA",
+         "sData":"N",
+         "datatype":"N",
+         "hierarchy":[
+            "INGIHLRTLV11M:IND"
+         ],
+         "db":"IND"
+      },
+      {
+         "id":"INGIHLGOVV11M:IND",
+         "title":"General Insurance Premium - Government Health Schemes (Monthly)",
+         "cat":"Insurance",
+         "subCat":"General Insurance",
+         "subset":"",
+         "freq":"Monthly",
+         "unit":"Rupees",
+         "src":"IRDA",
+         "sData":"N",
+         "datatype":"N",
+         "hierarchy":[
+            "INGIHLGOVV11M:IND"
+         ],
+         "db":"IND"
+      },
+      {
+         "id":"IFMDCABLSB11Q:IND",
+         "title":"Number of Cable Subscribers (MSO/HITS) - All Major Operators",
+         "cat":"Telecom, Internet",
+         "subCat":"Media",
+         "subset":"",
+         "freq":"Quarterly",
+         "unit":"Number",
+         "src":"TRAI",
+         "sData":"N",
+         "datatype":"N",
+         "hierarchy":[
+            "IFMDCABLSB11Q:IND"
+         ],
+         "db":"IND"
+      },
+      {
+         "id":"IFMDPYTVCH11Q:IND",
+         "title":"Number of Pay Television Channels",
+         "cat":"Telecom, Internet",
+         "subCat":"Media",
+         "subset":"",
+         "freq":"Quarterly",
+         "unit":"Number",
+         "src":"TRAI",
+         "sData":"N",
+         "datatype":"N",
+         "hierarchy":[
+            "IFMDPYTVCH11Q:IND"
+         ],
+         "db":"IND"
+      },
+      {
+         "id":"IFMDPVTFMS11Q:IND",
+         "title":"Number of Private FM Radio Stations",
+         "cat":"Telecom, Internet",
+         "subCat":"Media",
+         "subset":"",
+         "freq":"Quarterly",
+         "unit":"Number",
+         "src":"TRAI",
+         "sData":"N",
+         "datatype":"N",
+         "hierarchy":[
+            "IFMDPVTFMS11Q:IND"
+         ],
+         "db":"IND"
+      },
+      {
+         "id":"IFMDDTHSBA11Q:IND",
+         "title":"Number of Active DTH Subscribers",
+         "cat":"Telecom, Internet",
+         "subCat":"Media",
+         "subset":"",
+         "freq":"Quarterly",
+         "unit":"Number",
+         "src":"TRAI",
+         "sData":"N",
+         "datatype":"N",
+         "hierarchy":[
+            "IFMDDTHSBA11Q:IND"
+         ],
+         "db":"IND"
+      },
+      {
+         "id":"IFTLGRTTRV11Q:IND",
+         "title":"Gross Telecom Sector Revenue (quarterly)",
+         "cat":"Telecom, Internet",
+         "subCat":"Telecom",
+         "subset":"Performance",
+         "freq":"Quarterly",
+         "unit":"Rupees",
+         "src":"TRAI",
+         "sData":"N",
+         "datatype":"N",
+         "hierarchy":[
+            "IFTLGRTTRV11Q:IND"
+         ],
+         "db":"IND"
+      }
+   ]
+}
