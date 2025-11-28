@@ -202,28 +202,46 @@ const CataloguePage = () => {
       <Navbar isLoggedIn={isLoggedIn} />
   <Header selectedCount={selectedIds.size} currentDataset={currentDataset} bookmarkCount={bookmarkedIds.size} pinCount={pinIds.size} onDatasetSwitch={onSwitchDataset} bookmarkedProducts={bookmarkedProducts} />
   {/* main content: constrain total height so page doesn't scroll; inner panes scroll */}
-    <div className='m-4 max-h-[calc(100vh-130px)] overflow-hidden'>
-        {/* Main Layout: Sidebar + Table */}
-        <div className='flex gap-4'>
-          <SideBar
-            categories={categories}
-            selectedCategory={selectedCategory}
-            onSelectCategory={handleCategorySelect}
-            onSwitchDataset={onSwitchDataset}
-            currentDataset={currentDataset}
-          />
-          <ProductTable
-            data={filteredData}
-            currentPage={currentPage}
-            itemsPerPage={ITEMS_PER_PAGE}
-            onPageChange={handlePageChange}
-            onShareToggle={handleShareToggle}
-            onBookmarkToggle={handleBookmarkToggle}
-            onPinToggle={handlePinToggle}
-            bookmarkedIds={bookmarkedIds}
-            selectedIds={selectedIds}
-            pinIds={pinIds}
-          />
+    <div className='m-2 md:m-4 max-h-[calc(100vh-120px)] md:max-h-[calc(100vh-200px)] overflow-hidden'>
+        {/* Main Layout: Sidebar + Table - Desktop/Tablet and Mobile */}
+        <div className='flex flex-col md:flex-row gap-2 md:gap-4 h-full'>
+          {/* Sidebar - Hidden on mobile (drawer toggle in SideBar component) */}
+          <div className='hidden md:block md:flex-shrink-0'>
+            <SideBar
+              categories={categories}
+              selectedCategory={selectedCategory}
+              onSelectCategory={handleCategorySelect}
+              onSwitchDataset={onSwitchDataset}
+              currentDataset={currentDataset}
+            />
+          </div>
+
+          {/* Mobile Sidebar - Handled by SideBar component's drawer */}
+          <div className='md:hidden'>
+            <SideBar
+              categories={categories}
+              selectedCategory={selectedCategory}
+              onSelectCategory={handleCategorySelect}
+              onSwitchDataset={onSwitchDataset}
+              currentDataset={currentDataset}
+            />
+          </div>
+
+          {/* ProductTable */}
+          <div className='flex-1 min-w-0'>
+            <ProductTable
+              data={filteredData}
+              currentPage={currentPage}
+              itemsPerPage={ITEMS_PER_PAGE}
+              onPageChange={handlePageChange}
+              onShareToggle={handleShareToggle}
+              onBookmarkToggle={handleBookmarkToggle}
+              onPinToggle={handlePinToggle}
+              bookmarkedIds={bookmarkedIds}
+              selectedIds={selectedIds}
+              pinIds={pinIds}
+            />
+          </div>
         </div>
       </div>
     </>

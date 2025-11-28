@@ -54,45 +54,59 @@ const LoginForm = () => {
   };
 
   return (
-    <div className='flex flex-col justify-center items-center h-auto mt-40'>
-        <div className='flex flex-col items-center'>
-            <LockKeyhole className='bg-blue-950 p-2 text-white rounded-full' size={40}/>
-            Sign in
-        </div>
-        <form onSubmit={handleSubmit} className='flex flex-col gap-4 mt-6 w-full max-w-sm'>
- <div className="flex flex-col w-full">
-          <input
-            type="email"
-            placeholder="Email Address *"
-            className={`border p-2 rounded-md focus:outline-none focus:ring-2 ${
-              errors.email ? "border-red-500 focus:ring-red-500" : "border-gray-300 focus:ring-blue-500"
-            }`}
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
-          />
-          {errors.email && <span className="text-red-500 text-sm mt-1">{errors.email}</span>}
+    <div className='min-h-screen flex flex-col justify-center items-center px-4 py-8 md:py-0'>
+      <div className='w-full max-w-md'>
+        {/* Header */}
+        <div className='flex flex-col items-center mb-8 md:mb-10'>
+          <LockKeyhole className='bg-blue-950 p-2 text-white rounded-full mb-2 md:mb-4' size={40}/>
+          <h1 className='text-2xl md:text-3xl font-bold text-gray-900'>Sign in</h1>
         </div>
 
-        {/* Password Input */}
-        <div className="flex flex-col w-full">
-          <input
-            type="password"
-            placeholder="Password *"
-            className={`border p-2 rounded-md focus:outline-none focus:ring-2 ${
-              errors.password ? "border-red-500 focus:ring-red-500" : "border-gray-300 focus:ring-blue-500"
-            }`}
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
-          />
-          {errors.password && <span className="text-red-500 text-sm mt-1">{errors.password}</span>}
-        </div>
+        {/* Form */}
+        <form onSubmit={handleSubmit} className='flex flex-col gap-4 md:gap-5'>
+          {/* Email Input */}
+          <div className="flex flex-col w-full">
+            <input
+              type="email"
+              placeholder="Email Address *"
+              className={`border p-2 md:p-3 rounded-md focus:outline-none focus:ring-2 text-sm md:text-base ${
+                errors.email ? "border-red-500 focus:ring-red-500" : "border-gray-300 focus:ring-blue-500"
+              }`}
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+            />
+            {errors.email && <span className="text-red-500 text-xs md:text-sm mt-1">{errors.email}</span>}
+          </div>
 
-            <button onClick={handleSubmit} type='submit' className='bg-blue-950 text-white p-2 rounded-md hover:bg-blue-900 transition'>Sign In</button>
+          {/* Password Input */}
+          <div className="flex flex-col w-full">
+            <input
+              type="password"
+              placeholder="Password *"
+              className={`border p-2 md:p-3 rounded-md focus:outline-none focus:ring-2 text-sm md:text-base ${
+                errors.password ? "border-red-500 focus:ring-red-500" : "border-gray-300 focus:ring-blue-500"
+              }`}
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
+            />
+            {errors.password && <span className="text-red-500 text-xs md:text-sm mt-1">{errors.password}</span>}
+          </div>
+
+          {/* Sign In Button */}
+          <button 
+            type='submit' 
+            className='bg-blue-950 text-white p-2 md:p-3 rounded-md hover:bg-blue-900 transition font-medium text-sm md:text-base mt-2 md:mt-4'
+          >
+            Sign In
+          </button>
         </form>
-        <div className='flex justify-between gap-8'>
-            <Link to="/" className='text-blue-950 underline hover:underline mt-4 inline-block'>Forgot Password?</Link>
-            <Link to="/" className='text-blue-950 underline hover:underline mt-4 inline-block'>Dont have an account? Sign Up</Link>
+
+        {/* Links */}
+        <div className='flex flex-col md:flex-row justify-center md:justify-center gap-4 md:gap-8 mt-6 md:mt-8'>
+          <Link to="/" className='text-blue-950 hover:underline text-sm md:text-base text-center'>Forgot Password?</Link>
+          <Link to="/" className='text-blue-950 hover:underline text-sm md:text-base text-center'>Don't have an account? Sign Up</Link>
         </div>
+      </div>
     </div>
   )
 }

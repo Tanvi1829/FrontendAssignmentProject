@@ -59,47 +59,47 @@ const MonthCalendarModal = ({ isOpen, onClose }) => {
   const dayNames = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat']
 
   return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/50 backdrop-blur-xs bg-opacity-50">
-      <div className="bg-white rounded-lg shadow-lg p-6 max-w-sm w-full mx-4">
+    <div className="fixed inset-0 z-50 flex items-end md:items-center justify-center bg-black/50 backdrop-blur-xs bg-opacity-50 p-4 md:p-0">
+      <div className="bg-white rounded-t-lg md:rounded-lg shadow-lg p-4 md:p-6 w-full md:max-w-sm md:w-auto">
         {/* Header */}
-        <div className="flex items-center justify-between mb-6">
-          <h2 className="text-lg font-bold text-gray-800">Select Date</h2>
+        <div className="flex items-center justify-between mb-4 md:mb-6">
+          <h2 className="text-base md:text-lg font-bold text-gray-800">Select Date</h2>
           <button
             onClick={onClose}
-            className="hover:bg-gray-100 p-1 rounded-md transition"
+            className="hover:bg-gray-100 p-1 rounded-md transition shrink-0"
           >
-            <X size={24} />
+            <X size={20} className="md:w-6 md:h-6" />
           </button>
         </div>
 
         {/* Month Navigation */}
-        <div className="flex items-center justify-between mb-6">
+        <div className="flex items-center justify-between mb-4 md:mb-6">
           <button
             onClick={handlePrevMonth}
             className="p-1 hover:bg-gray-100 rounded-md transition"
           >
-            <ChevronLeft size={20} />
+            <ChevronLeft size={18} className="md:w-5 md:h-5" />
           </button>
-          <h3 className="text-lg font-semibold text-gray-800 min-w-max">{monthName}</h3>
+          <h3 className="text-base md:text-lg font-semibold text-gray-800 min-w-max">{monthName}</h3>
           <button
             onClick={handleNextMonth}
             className="p-1 hover:bg-gray-100 rounded-md transition"
           >
-            <ChevronRight size={20} />
+            <ChevronRight size={18} className="md:w-5 md:h-5" />
           </button>
         </div>
 
         {/* Day Names */}
-        <div className="grid grid-cols-7 gap-2 mb-2">
+        <div className="grid grid-cols-7 gap-1 md:gap-2 mb-2 md:mb-2">
           {dayNames.map((day) => (
-            <div key={day} className="text-center text-sm font-semibold text-gray-600 py-2">
+            <div key={day} className="text-center text-xs md:text-sm font-semibold text-gray-600 py-2">
               {day}
             </div>
           ))}
         </div>
 
         {/* Calendar Days */}
-        <div className="grid grid-cols-7 gap-2 mb-6">
+        <div className="grid grid-cols-7 gap-1 md:gap-2 mb-4 md:mb-6">
           {emptyDays.map((_, idx) => (
             <div key={`empty-${idx}`} className="aspect-square" />
           ))}
@@ -107,7 +107,7 @@ const MonthCalendarModal = ({ isOpen, onClose }) => {
             <button
               key={day}
               onClick={() => handleSelectDate(day)}
-              className={`aspect-square rounded-lg text-sm font-medium transition ${
+              className={`aspect-square rounded-lg text-xs md:text-sm font-medium transition ${
                 isSelected(day)
                   ? 'bg-blue-950 text-white'
                   : isToday(day)
@@ -121,24 +121,24 @@ const MonthCalendarModal = ({ isOpen, onClose }) => {
         </div>
 
         {/* Selected Date Display */}
-        <div className="mb-6 p-3 bg-gray-50 rounded-lg text-center">
-          <p className="text-sm text-gray-600">Selected:</p>
-          <p className="text-lg font-semibold text-gray-800">
+        <div className="mb-4 md:mb-6 p-3 bg-gray-50 rounded-lg text-center">
+          <p className="text-xs md:text-sm text-gray-600">Selected:</p>
+          <p className="text-sm md:text-lg font-semibold text-gray-800">
             {selectedDate.toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' })}
           </p>
         </div>
 
         {/* Buttons */}
-        <div className="flex gap-3 justify-end">
+        <div className="flex gap-2 md:gap-3 justify-end">
           <button
             onClick={onClose}
-            className="px-4 py-2 text-gray-700 border border-gray-300 rounded-lg hover:bg-gray-100 transition"
+            className="px-3 md:px-4 py-2 text-xs md:text-sm text-gray-700 border border-gray-300 rounded-lg hover:bg-gray-100 transition"
           >
             Cancel
           </button>
           <button
             onClick={handleApply}
-            className="px-4 py-2 bg-blue-950 text-white rounded-lg hover:bg-blue-900 transition"
+            className="px-3 md:px-4 py-2 text-xs md:text-sm bg-blue-950 text-white rounded-lg hover:bg-blue-900 transition"
           >
             Apply
           </button>
