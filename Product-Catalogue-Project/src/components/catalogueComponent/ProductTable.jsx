@@ -1,8 +1,19 @@
-import React, { useMemo, useState } from 'react'
+import React, { useMemo, useState, useEffect } from 'react'
 import { MoreVertical, BookmarkMinus, Pin, Plus } from 'lucide-react'
 
-const ProductTable = ({ data, currentPage, itemsPerPage, onPageChange, onShareToggle, onBookmarkToggle, onPinToggle }) => {
+const ProductTable = ({ data, currentPage, itemsPerPage, onPageChange, onShareToggle, onBookmarkToggle, onPinToggle, bookmarkedIds = new Set(), selectedIds = new Set(), pinIds = new Set() }) => {
   const [activeActions, setActiveActions] = useState({})
+
+  // Sync activeActions UI state from parent's persisted sets (bookmarkedIds, selectedIds, pinIds)
+  useEffect(() => {
+    const newActions = {}
+    data.forEach((item) => {
+      if (bookmarkedIds.has(item.id)) newActions[`${item.id}-bookmark`] = true
+      if (selectedIds.has(item.id)) newActions[`${item.id}-share`] = true
+      if (pinIds.has(item.id)) newActions[`${item.id}-pin`] = true
+    })
+    setActiveActions(newActions)
+  }, [data, bookmarkedIds, selectedIds, pinIds])
   const { startIndex, endIndex, paginatedData, totalPages } = useMemo(() => {
     const start = (currentPage - 1) * itemsPerPage
     const end = start + itemsPerPage
@@ -38,6 +49,41 @@ const ProductTable = ({ data, currentPage, itemsPerPage, onPageChange, onShareTo
       return next
     })
   }
+
+    const handleBookmarkToggle = (itemId, actionType) => {
+  const key = `${itemId}-${actionType}`
+    setActiveActions((prev) => {
+      const newVal = !prev[key]
+      const next = { ...prev, [key]: newVal }
+      // Notify parent only for the share/add action so header can update selected count
+      if (actionType === 'bookmark' && typeof onBookmarkToggle === 'function') {
+        try {
+          onBookmarkToggle(itemId, newVal)
+        } catch (e) {
+          // swallow any errors from parent callback
+        }
+      }
+      return next
+    })
+    }
+
+
+    const handlePinToggle = (itemId, actionType) => {
+  const key = `${itemId}-${actionType}`
+    setActiveActions((prev) => {
+      const newVal = !prev[key]
+      const next = { ...prev, [key]: newVal }
+      // Notify parent only for the share/add action so header can update selected count
+      if (actionType === 'pin' && typeof onPinToggle === 'function') {
+        try {
+          onPinToggle(itemId, newVal)
+        } catch (e) {
+          // swallow any errors from parent callback
+        }
+      }
+      return next
+    })
+    }
 
   return (
     // make this a column container and limit its height so only the table body scrolls
@@ -84,8 +130,8 @@ const ProductTable = ({ data, currentPage, itemsPerPage, onPageChange, onShareTo
             {/* Actions */}
             <div className='col-span-2 flex gap-3 justify-end'>
               <button 
-                onClick={() => toggleAction(item.id, 'bookmark')}
-                className={`p-1.5 rounded transition ${activeActions[`${item.id}-bookmark`] ? 'bg-blue-500 text-white' : 'hover:bg-gray-200 text-gray-600'}`}
+                onClick={() => handleBookmarkToggle(item.id, 'bookmark')}
+                className={`p-1.5 rounded transition border ${activeActions[`${item.id}-bookmark`] ? 'bg-blue-500 text-white border-blue-500' : 'border-gray-400 hover:bg-gray-200 text-gray-600'}`}
                 title='Bookmark'>
                 <BookmarkMinus size={18} className={activeActions[`${item.id}-bookmark`] ? 'font-bold' : ''} strokeWidth={activeActions[`${item.id}-bookmark`] ? 3 : 1.5} />
               </button>
@@ -96,8 +142,8 @@ const ProductTable = ({ data, currentPage, itemsPerPage, onPageChange, onShareTo
                 <Plus size={16} className={activeActions[`${item.id}-share`] ? 'font-bold' : ''} strokeWidth={activeActions[`${item.id}-share`] ? 3 : 1.5} />
               </button>
               <button 
-                onClick={() => toggleAction(item.id, 'pin')}
-                className={`p-1.5 rounded transition ${activeActions[`${item.id}-pin`] ? 'bg-blue-500 text-white' : 'hover:bg-gray-200 text-gray-600'}`}
+                onClick={() => handlePinToggle(item.id, 'pin')}
+                className={`p-1.5 rounded transition border ${activeActions[`${item.id}-pin`] ? 'bg-blue-500 text-white' : 'hover:bg-gray-200 text-gray-600'}`}
                 title='Pin'>
                 <Pin size={18} className={activeActions[`${item.id}-pin`] ? 'font-bold' : ''} strokeWidth={activeActions[`${item.id}-pin`] ? 3 : 1.5} />
               </button>

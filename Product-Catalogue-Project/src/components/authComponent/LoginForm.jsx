@@ -1,12 +1,14 @@
 import { LockKeyhole } from 'lucide-react'
-import React, { useState } from 'react'
+import React, { useState, useContext } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
+import { AuthContext } from '../../App'
 
 
 const LoginForm = () => {
      const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const navigate = useNavigate();
+  const { setIsLoggedIn, setCurrentUser } = useContext(AuthContext);
 
   const [errors, setErrors] = useState({
     email: "",
@@ -44,8 +46,10 @@ const LoginForm = () => {
 
     if (validateForm()) {
       console.log("Form Submitted:", { email, password });
-      // API call yaha kar sakti ho
-      navigate("/catalogue")
+  setIsLoggedIn(true); // Update global auth state
+  // Save current user identifier so we can persist per-user data
+  if (typeof setCurrentUser === 'function') setCurrentUser(email);
+  navigate("/catalogue")
     }
   };
 
@@ -83,7 +87,7 @@ const LoginForm = () => {
           {errors.password && <span className="text-red-500 text-sm mt-1">{errors.password}</span>}
         </div>
 
-            <button type='submit' className='bg-blue-950 text-white p-2 rounded-md hover:bg-blue-900 transition'>Sign In</button>
+            <button onClick={handleSubmit} type='submit' className='bg-blue-950 text-white p-2 rounded-md hover:bg-blue-900 transition'>Sign In</button>
         </form>
         <div className='flex justify-between gap-8'>
             <Link to="/" className='text-blue-950 underline hover:underline mt-4 inline-block'>Forgot Password?</Link>

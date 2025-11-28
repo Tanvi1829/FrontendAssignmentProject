@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { ChevronDown } from 'lucide-react'
+import { ChevronDown, LayoutDashboard } from 'lucide-react'
 
 const SideBar = ({ categories, selectedCategory, onSelectCategory, onSwitchDataset, currentDataset   }) => {
      const [isOpen, setIsOpen] = useState(false);
@@ -39,22 +39,7 @@ const SideBar = ({ categories, selectedCategory, onSelectCategory, onSwitchDatas
         )}
       </div>
 
-      {/* Category Links */}
-      {/* <div className='divide-y divide-gray-200 max-h-screen overflow-y-auto'>
-        {categories.map((category) => (
-          <button
-            key={category.id}
-            onClick={() => onSelectCategory(category.id)}
-            className={`w-full text-left px-4 py-3 text-sm font-medium transition ${
-              selectedCategory === category.id
-                ? 'bg-blue-50 text-blue-950 border-l-2 border-blue-950'
-                : 'text-gray-700 hover:bg-gray-50 border-l-2 border-transparent'
-            }`}>
-            <span className='mr-2'>{category.icon || '▸'}</span>
-            {category.name}
-          </button>
-        ))}
-      </div> */}
+
   <div className="space-y-1 p-4 bg-blue-50 max-h-[calc(100vh-140px)] overflow-auto rounded-lg">
 
    <div className="bg-blue-50 rounded-xl">
@@ -83,9 +68,11 @@ const SideBar = ({ categories, selectedCategory, onSelectCategory, onSwitchDatas
               {/* Category Name */}
               <span>{category.name}</span>
 
-              {/* Right small grid icon (if exists) */}
-              {category.gridIcon && (
-                <span className="ml-auto text-blue-600">{category.gridIcon}</span>
+              {/* Right small grid icon only for specific categories (or if category provides gridIcon) */}
+              {((['external-sector', 'foreign-trade'].includes(category.id)) || category.gridIcon) && (
+                <span className="ml-auto text-blue-600">
+                  {category.gridIcon ? category.gridIcon : <LayoutDashboard size={18} />}
+                </span>
               )}
             </button>
           );
